@@ -1,5 +1,10 @@
 package main
 
+import "fmt"
+
 func main() {
-	Condition()
+	print("Sonni kiriting: ")
+	var a int
+	fmt.Scan(&a)
+	OddorEven(a)
 }
