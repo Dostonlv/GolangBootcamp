@@ -2,7 +2,7 @@ package main
 
 import (
 	"fmt"
-	"lesson2/Factorial"
+	"lesson2/Fibonacci"
 )
 
 func main() {
@@ -17,6 +17,6 @@ func main() {
 	//}
 	//fmt.Println(sum)
 	//FizzBuzz.FizzBuzz(a)
-	f := Factorial.Factorial(a)
+	f := Fibonacci.FibonacciSum(a)
 	fmt.Println(f)
 }
