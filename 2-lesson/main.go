@@ -2,7 +2,7 @@ package main
 
 import (
 	"fmt"
-	"lesson2/Fibonacci"
+	"lesson2/Pyramids"
 )
 
 func main() {
@@ -17,6 +17,5 @@ func main() {
 	//}
 	//fmt.Println(sum)
 	//FizzBuzz.FizzBuzz(a)
-	f := Fibonacci.FibonacciSum(a)
-	fmt.Println(f)
+	Pyramids.InvertedHalfPyramid(a)
 }
