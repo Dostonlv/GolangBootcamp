@@ -17,5 +17,5 @@ func main() {
 	//}
 	//fmt.Println(sum)
 	//FizzBuzz.FizzBuzz(a)
-	Pyramids.ReversePyramid(a)
+	Pyramids.HollowInvertedPyramid(a)
 }
