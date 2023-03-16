@@ -1,0 +1,28 @@
+[
+  {
+    "id": 1,
+    "foodName": "Jo'ja boks",
+    "price": 23000
+  },
+  {
+    "id": 2,
+    "foodName": "Oqtepa seti",
+    "price": 16000
+  },
+  {
+    "id": 3,
+    "foodName": "Juftlik seti",
+    "price": 50000
+  },
+  {
+    "id": 4,
+    "foodName": "Tandir lavash",
+    "price": 27000
+  },
+  {
+    "id": 5,
+    "foodName": "Xaggi",
+    "price": 29000
+  }
+
+]
