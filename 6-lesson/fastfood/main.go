@@ -9,15 +9,15 @@ import (
 )
 
 type Food struct {
-	Id       int    `json:"id"`
-	FoodName string `json:"foodName"`
-	Price    int    `json:"price"`
+	Id       int    `jsonning:"id"`
+	FoodName string `jsonning:"foodName"`
+	Price    int    `jsonning:"price"`
 }
 
 type Order struct {
-	OrderId  int      `json: "orderId"`
-	FoodName []string `json:"foodName"`
-	Price    int      `json:"price"`
+	OrderId  int      `jsonning: "orderId"`
+	FoodName []string `jsonning:"foodName"`
+	Price    int      `jsonning:"price"`
 }
 
 func main() {
@@ -69,7 +69,7 @@ func main() {
 		return
 	}
 
-	err = ioutil.WriteFile("orders.json", ordered, 0644)
+	err = ioutil.WriteFile("orders.jsonning", ordered, 0644)
 	if err != nil {
 		fmt.Println("Error writing JSON to file:", err)
 		return

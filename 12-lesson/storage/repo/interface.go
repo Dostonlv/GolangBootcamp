@@ -8,18 +8,18 @@ type Students interface {
 	UpdateStudent(id int)
 }
 type Subject []struct {
-	ID    int    `json:"id"`
-	Name  string `json:"name"`
-	Marks int    `json:"marks"`
+	ID    int    `jsonning:"id"`
+	Name  string `jsonning:"name"`
+	Marks int    `jsonning:"marks"`
 }
 
 type Student struct {
-	ID       int     `json:"id"`
-	Name     string  `json:"name"`
-	Grade    int     `json:"grade"`
-	Section  string  `json:"section"`
-	Course   string  `json:"course"`
-	Subjects Subject `json:"subjects"`
+	ID       int     `jsonning:"id"`
+	Name     string  `jsonning:"name"`
+	Grade    int     `jsonning:"grade"`
+	Section  string  `jsonning:"section"`
+	Course   string  `jsonning:"course"`
+	Subjects Subject `jsonning:"subjects"`
 }
 
 type StudentManager struct {

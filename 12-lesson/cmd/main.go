@@ -4,19 +4,12 @@ import (
 	"encoding/json"
 	"fmt"
 	"os"
-
+	"structure/storage/jsonning"
 	"structure/storage/repo"
 )
 
-type StdManager repo.StudentManager
-
-//func (s *StdManager) AddStudent(student repo.Student) error {
-//	s.Students = append(s.Students, student)
-//	return nil
-//}
-
 func main() {
-	data, err := os.ReadFile("../storage/json/student.json")
+	data, err := os.ReadFile("../storage/jsonning/student.json")
 	if err != nil {
 		panic(err)
 	}
@@ -27,7 +20,7 @@ func main() {
 		return
 	}
 
-	Std := &StdManager{Students: student}
+	Std := &jsonning.StudentManager{Students: student}
 
 START:
 	var a int
@@ -73,12 +66,12 @@ Student grade: %v
 		})
 
 		goto START
+
+	} else if a == 3 {
+		var id int
+		fmt.Print("Id ni kiriting: ")
+		fmt.Scan(&id)
+		Std.UpdateStudent(id)
+		goto START
 	}
-	//} else if a == 3 {
-	//	var id int
-	//	fmt.Print("Id ni kiriting: ")
-	//	fmt.Scan(&id)
-	//	Std.UpdateStudent(id)
-	//	goto START
-	//}
 }

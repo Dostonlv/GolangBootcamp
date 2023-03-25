@@ -16,15 +16,15 @@ type BookData interface {
 }
 
 type Book struct {
-	ID       int    `json:"id"`
-	Title    string `json:"title"`
-	Author   string `json:"author"`
-	Year     int    `json:"year"`
-	Status   string `json:"status"`
-	Price    int    `json:"price"`
-	Period   int    `json:"period"`
-	Category string `json:"category"`
-	Page     int    `json:"page"`
+	ID       int    `jsonning:"id"`
+	Title    string `jsonning:"title"`
+	Author   string `jsonning:"author"`
+	Year     int    `jsonning:"year"`
+	Status   string `jsonning:"status"`
+	Price    int    `jsonning:"price"`
+	Period   int    `jsonning:"period"`
+	Category string `jsonning:"category"`
+	Page     int    `jsonning:"page"`
 }
 
 type BookLib struct {
@@ -68,7 +68,7 @@ func (b *BookLib) UpdateBook(updatedBook Book) {
 }
 
 func main() {
-	data, err := os.ReadFile("books.json")
+	data, err := os.ReadFile("books.jsonning")
 	if err != nil {
 		panic(err)
 	}

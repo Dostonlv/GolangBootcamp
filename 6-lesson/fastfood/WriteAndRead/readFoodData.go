@@ -6,7 +6,7 @@ import (
 )
 
 func ReadNameAndPrice() ([]byte, error) {
-	data, err := ioutil.ReadFile("foodnamesandprice.json")
+	data, err := ioutil.ReadFile("foodnamesandprice.jsonning")
 	if err != nil {
 		fmt.Println("Error reading file:", err)
 		return nil, nil
