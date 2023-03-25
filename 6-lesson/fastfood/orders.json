@@ -1,1 +1,6 @@
-[{"OrderId":1,"foodName":["Oqtepa seti"],"price":16000},{"OrderId":2,"foodName":["Jo'ja boks","Oqtepa seti","Juftlik seti"],"price":89000}]
+[{"OrderId":1,
+  "foodName":["Oqtepa seti","Juftlik seti","Tandir lavash"],
+  "price":93000},
+  {"OrderId":2,"foodName":["Xaggi","Oqtepa seti"],
+  "price":45000},{"OrderId":3,"foodName":["Jo'ja boks","Juftlik seti"],
+  "price":73000}]
