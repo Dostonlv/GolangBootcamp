@@ -77,6 +77,7 @@ START:
 	fmt.Println("1-Studentlar listi")
 	fmt.Println("2-Student qo'shish ")
 	fmt.Println("3-Student Update ")
+	fmt.Println("4-Studentni ID orqali topish ")
 	fmt.Print("Sonni kiriting: ")
 	fmt.Scan(&a)
 	if a == 1 {

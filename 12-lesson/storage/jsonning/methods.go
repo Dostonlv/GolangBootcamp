@@ -5,8 +5,6 @@ import (
 	"structure/storage/repo"
 )
 
-var a int
-
 type StudentManager repo.StudentManager
 
 func (s *StudentManager) AddStudent(student repo.Student) error {
@@ -33,4 +31,22 @@ func (s *StudentManager) UpdateStudent(id int) {
 		}
 	}
 	fmt.Printf("Student with ID %d not found!\n", id)
+}
+
+func (s *StudentManager) GetStudentByID(id int) (*repo.Student, error) {
+	for _, std := range s.Students {
+		if std.ID == id {
+			return &std, nil
+		}
+	}
+	return nil, fmt.Errorf("Student with ID %d not found", id)
+}
+func (s *StudentManager) RemoveStudentByID(id int) error {
+	for i, rstd := range s.Students {
+		if rstd.ID == id {
+			s.Students = append(s.Students[:i], s.Students[i+1:]...)
+			return fmt.Errorf("successfully remove id:%d data ", id)
+		}
+	}
+	return fmt.Errorf("Student with ID %d not found", id)
 }

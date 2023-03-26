@@ -2,9 +2,9 @@ package repo
 
 type Students interface {
 	GetStudents() []Student
-	//GetStudentByID(id int) (*Student, error)
+	GetStudentByID(id int) (*Student, error)
 	AddStudent(student Student) error
-	//RemoveStudentByID(id int) error
+	RemoveStudentByID(id int) error
 	UpdateStudent(id int)
 }
 type Subject []struct {
