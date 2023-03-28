@@ -45,7 +45,7 @@ func (s *StudentManager) RemoveStudentByID(id int) error {
 	for i, rstd := range s.Students {
 		if rstd.ID == id {
 			s.Students = append(s.Students[:i], s.Students[i+1:]...)
-			return fmt.Errorf("successfully remove id:%d data ", id)
+			return fmt.Errorf("successfully remove id:%d db ", id)
 		}
 	}
 	return fmt.Errorf("Student with ID %d not found", id)

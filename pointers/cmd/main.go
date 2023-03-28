@@ -1,7 +1,8 @@
 package main
 
-import "github.com/Dostonlv/GolangBootcamp/pointers/methods"
+import "pointers/methods"
 
+// return address
 func main() {
 	var (
 		s = &methods.MyStruct{
