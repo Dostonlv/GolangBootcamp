@@ -10,7 +10,7 @@ import (
 )
 
 func main() {
-	prod, err := os.ReadFile("../db/products.json")
+	prod, err := os.ReadFile("../data/products.json")
 	if err != nil {
 		log.Fatal(err)
 	}
@@ -23,7 +23,7 @@ func main() {
 		return
 	}
 
-	user, err := os.ReadFile("../db/users.json")
+	user, err := os.ReadFile("../data/users.json")
 	if err != nil {
 		log.Fatal(err)
 	}
@@ -61,16 +61,16 @@ product name: %v
 product price: %v
 `, pro.ID, pro.Name, pro.Price)
 		}
-		var namearray []string
-		var prname string
+		var NameArray []string
+		var ProductName string
 	START:
 		fmt.Print("enter product name if you buy products enter stop: ")
 
-		fmt.Scan(&prname)
+		fmt.Scan(&ProductName)
 		for _, v := range Products.PrintProduct() {
-			if v.Name == prname {
-				namearray = append(namearray, prname)
-				if prname == "stop" {
+			if v.Name == ProductName {
+				NameArray = append(NameArray, ProductName)
+				if ProductName == "stop" {
 					break
 				}
 				goto START
@@ -78,13 +78,13 @@ product price: %v
 		}
 		sum := 0
 		for _, v := range Products.PrintProduct() {
-			for _, k := range namearray {
+			for _, k := range NameArray {
 				if v.Name == k {
 					sum += v.Price
 				}
 			}
 		}
-		var usersarray []models.User
+		var UserArray []models.User
 		var user int
 		var users models.User
 
@@ -94,24 +94,32 @@ product price: %v
 				users = v
 			}
 		}
-		users.Balance = user - sum
+		if user <= 0 {
+			fmt.Println("there is no money on your card")
+			goto STOP
+		} else if user-sum <= 0 {
+			fmt.Println("the money on your card is not enough to buy goods")
+			goto STOP
+		} else {
+			users.Balance = user - sum
+		}
 
 		for _, v := range Users.SendUsers() {
 			if v.Name != name {
-				usersarray = append(usersarray, v)
+				UserArray = append(UserArray, v)
 			}
 		}
 
-		usersarray = append(usersarray, users)
+		UserArray = append(UserArray, users)
 
-		js, err := json.Marshal(usersarray)
+		js, err := json.Marshal(UserArray)
 		if err != nil {
 			fmt.Errorf("failed to marshal tasks to JSON: %v", err)
 		}
-		err = os.WriteFile("../db/users.json", js, 0644)
+		err = os.WriteFile("../data/users.json", js, 0644)
 
 		fmt.Printf("%v soums have been debited from your account", sum)
-		da, err := os.ReadFile("../db/benifit.json")
+		da, err := os.ReadFile("../data/benifit.json")
 		if err != nil {
 			log.Fatal(err)
 		}
@@ -123,9 +131,11 @@ product price: %v
 		if err != nil {
 			fmt.Errorf("failed to marshal tasks to JSON: %v", err)
 		}
-		err = os.WriteFile("../db/benifit.json", jsonData, 0644)
+		err = os.WriteFile("../data/benifit.json", jsonData, 0644)
 	} else {
 		fmt.Println("This user not")
 	}
+STOP:
+	fmt.Println("please complete your account")
 
 }

@@ -1,2 +1,2 @@
 run:
-	go run cmd/main.go
+	cd cmd && go run main.go

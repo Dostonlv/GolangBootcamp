@@ -10,7 +10,7 @@ import (
 
 func main() {
 
-	data, err := os.ReadFile("../internal/db/todo.json")
+	data, err := os.ReadFile("../internal/data/todo.json")
 	if err != nil {
 		panic(err)
 	}

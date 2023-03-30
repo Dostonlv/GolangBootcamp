@@ -9,13 +9,13 @@ type ToDoList interface {
 }
 
 type Task struct {
-	ID          int    `db:"id"`
-	Title       string `db:"title"`
-	Completed   bool   `db:"completed"`
-	Description string `db:"description"`
-	DueDate     string `db:"dueDate"`
-	Priority    string `db:"priority"`
-	StartDate   string `db:"startDate"`
+	ID          int    `data:"id"`
+	Title       string `data:"title"`
+	Completed   bool   `data:"completed"`
+	Description string `data:"description"`
+	DueDate     string `data:"dueDate"`
+	Priority    string `data:"priority"`
+	StartDate   string `data:"startDate"`
 }
 
 type TaskManager struct {

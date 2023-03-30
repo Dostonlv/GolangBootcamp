@@ -30,7 +30,7 @@ func (t *TaskManager) RemoveTask(id int) error {
 }
 
 func (t *TaskManager) MarkTaskCompleted(id int) error {
-	data, err := os.ReadFile("../internal/db/todo.json")
+	data, err := os.ReadFile("../internal/data/todo.json")
 	if err != nil {
 		panic(err)
 	}
@@ -58,7 +58,7 @@ func (t *TaskManager) MarkTaskCompleted(id int) error {
 	if err != nil {
 		return fmt.Errorf("failed to marshal tasks to JSON: %v", err)
 	}
-	err = os.WriteFile("../internal/db/todo.json", jsonData, 0644)
+	err = os.WriteFile("../internal/data/todo.json", jsonData, 0644)
 	if err != nil {
 		return fmt.Errorf("failed to write tasks to JSON file: %v", err)
 	}
@@ -72,8 +72,8 @@ func (t *TaskManager) WriteTasks() error {
 		return fmt.Errorf("failed to marshal tasks to JSON: %v", err)
 	}
 
-	// Write the JSON db to the file
-	err = os.WriteFile("../internal/db/todo.json", jsonData, 0644)
+	// Write the JSON data to the file
+	err = os.WriteFile("../internal/data/todo.json", jsonData, 0644)
 	if err != nil {
 		return fmt.Errorf("failed to write tasks to JSON file: %v", err)
 	}
